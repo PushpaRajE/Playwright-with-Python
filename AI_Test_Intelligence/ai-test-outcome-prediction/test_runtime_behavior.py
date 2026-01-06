@@ -77,3 +77,4 @@ def test_ai_assisted_playwright(ai_model):
         finally:
             context.close()
             browser.close()
+# End of test_ai_assisted_playwright
