@@ -17,6 +17,7 @@ pipeline {
 
     post {
         always {
+            // Publish HTML report
             publishHTML([
                 allowMissing: false,
                 alwaysLinkToLastBuild: true,
@@ -25,13 +26,11 @@ pipeline {
                 reportFiles: 'report.html',
                 reportName: 'Playwright Test Report'
             ])
-        }
-    }
-    post {
-        always {
+
+            // Send email for every build
             emailext(
-            subject: "Jenkins Build ${env.JOB_NAME} #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
-            body: """
+                subject: "Jenkins Build ${env.JOB_NAME} #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
+                body: """
 Hello,
 
 Build Status: ${currentBuild.currentResult}
@@ -48,9 +47,8 @@ ${env.BUILD_URL}Playwright_20Test_20Report/
 Regards,
 Jenkins
 """,
-            to: "esamsettitushparaj@gmail.com"
-        )
+                to: "esamsettitushparaj@gmail.com"
+            )
+        }
     }
-}
-
 }
