@@ -42,10 +42,10 @@ def pytest_runtest_makereport(item, call):
     # ---- CALL PHASE (TEST EXECUTION) ----
     if rep.when == "call":
         if rep.passed:
-            print(f"✅ PASS: {item.nodeid}")
+            print(f"PASS: {item.nodeid}")
 
         elif rep.failed:
-            print(f"❌ FAIL: {item.nodeid}")
+            print(f"FAIL: {item.nodeid}")
 
             # Get Playwright page object (from fixture)
             page = item.funcargs.get("page", None)
@@ -71,7 +71,7 @@ def pytest_runtest_makereport(item, call):
                 # Take screenshot
                 page.screenshot(path=screenshot_path, full_page=True)
 
-                print(f"📸 Screenshot saved: {screenshot_path}")
+                print(f"Screenshot saved: {screenshot_path}")
 
                 # Attach screenshot to pytest-html report
                 if hasattr(rep, "extra"):
@@ -80,8 +80,8 @@ def pytest_runtest_makereport(item, call):
                     rep.extra = [extras.image(screenshot_path)]
 
         elif rep.skipped:
-            print(f"⏭️ SKIP: {item.nodeid}")
+            print(f"SKIP: {item.nodeid}")
 
     # ---- TEARDOWN PHASE ----
     if rep.when == "teardown":
-        print(f"◀ TEARDOWN: {item.nodeid}")
+        print(f"TEARDOWN: {item.nodeid}")
