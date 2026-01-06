@@ -28,3 +28,7 @@ joblib>=1.4
 # Utilities
 # =========================
 python-slugify>=8.0
+
+
+# =========================
+# Reporting
