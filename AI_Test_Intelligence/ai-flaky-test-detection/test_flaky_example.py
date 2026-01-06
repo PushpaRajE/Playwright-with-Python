@@ -52,9 +52,9 @@ def test_flaky_behavior():
     print("Time Variance:", variance)
 
     if is_flaky:
-        print("⚠️ TEST IS FLAKY")
+        print("TEST IS FLAKY")
     else:
-        print("✅ TEST IS STABLE")
+        print("TEST IS STABLE")
 
     # 🔹 Optional assertion (kept soft for demo)
     assert isinstance(is_flaky, bool)
