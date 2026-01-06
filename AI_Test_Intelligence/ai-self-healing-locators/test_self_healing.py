@@ -15,7 +15,7 @@ def test_google_search_ai_self_healing():
             browser.close()
             return
         except TimeoutError:
-            print("❌ Primary locator failed → invoking AI self-healing")
+            print("Primary locator failed → invoking AI self-healing")
 
         # -------- COLLECT INPUT LABELS FROM DOM --------
         labels = page.evaluate("""
