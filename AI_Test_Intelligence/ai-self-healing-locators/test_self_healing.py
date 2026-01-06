@@ -34,3 +34,4 @@ def test_google_search_ai_self_healing():
         page.keyboard.press("Enter")
 
         browser.close()
+   
