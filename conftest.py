@@ -36,7 +36,8 @@ def pytest_runtest_makereport(item, call):
 
     # ---- SETUP PHASE ----
     if rep.when == "setup":
-        print(f"\n▶ SETUP: {item.nodeid}")
+        print(f"\nSETUP: {item.nodeid}")
+
 
     # ---- CALL PHASE (TEST EXECUTION) ----
     if rep.when == "call":
